@@ -9,5 +9,6 @@ import lombok.*;
 @Entity
 public class Parent extends User{
 
+	@OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
 	private List<Student> students;
 }

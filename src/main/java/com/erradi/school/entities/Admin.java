@@ -13,8 +13,10 @@ public class Admin{
 	private Long adminId;
 	private String role;
 	
+	@OneToMany(mappedBy = "admin", fetch = FetchType.LAZY)
 	private List<User> users;
 	
+	@OneToMany(mappedBy = "admin", fetch = FetchType.LAZY)
 	private List<Course> courses;
 	
 }

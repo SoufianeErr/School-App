@@ -11,7 +11,11 @@ public class Student extends User{
 
 	private int gradeLevel;
 	
+	@ManyToOne
+	@JoinColumn(name = "parent_Id")
 	private Parent parent;
+	
+	@ManyToMany(mappedBy = "students")
 	private List<Course> courses;
 	
 }

@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
 	@Id
@@ -14,5 +15,9 @@ public class User {
 	private String name;
 	private String email;
 	private String password;
+	
+	@ManyToOne
+	@JoinColumn(name = "admin_id")
+	private Admin admin;
 	
 }

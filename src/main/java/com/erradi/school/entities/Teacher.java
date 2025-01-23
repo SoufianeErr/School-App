@@ -10,6 +10,7 @@ public class Teacher extends User{
 	
 	private String specialization;
 	
+	@OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY)
 	private List<Course> courses;
 
 }

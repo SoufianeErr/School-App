@@ -17,7 +17,17 @@ public class Course {
 	private String title;
 	private String description;
 	
+	@ManyToOne
+	@JoinColumn(name = "admin_id")
+	private Admin admin;
+	
+	@ManyToOne
+	@JoinColumn(name = "teacherId")
 	private Teacher teacher;
 	
+	@ManyToMany
+	@JoinTable(name = "students_courses", 
+				joinColumns = @JoinColumn(name = "course_code"), // Foreign key in join table for this entity
+				inverseJoinColumns =  @JoinColumn(name = "student_id"))// Foreign key for the other entity
 	private List <Student> students;
 }
